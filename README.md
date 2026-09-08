@@ -1,5 +1,9 @@
 # DECISIONS.md
 
+[![CI](https://github.com/dropout-developer/decisions.md/actions/workflows/ci.yml/badge.svg)](https://github.com/dropout-developer/decisions.md/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/decisions.md.svg)](https://www.npmjs.com/package/decisions.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A predictable file at the root of a repository that records why the system is
 built the way it is, as an append-only log that both humans and AI coding agents
 read before architectural work and append to after it.
@@ -128,12 +132,16 @@ Copy this block into your `AGENTS.md` so the agent is told to follow it.
 2. Make `DEC-0001` the decision to keep a decision log.
 3. Backfill three to five decisions you already regret explaining twice.
 4. Link the file from `README.md` and `AGENTS.md`.
-5. Optional: run [`bin/check-decisions.mjs`](bin/check-decisions.mjs) in CI to
-   verify numbering, required fields, and status values.
+5. Optional: run the linter in CI to verify numbering, required fields, status
+   values, and dangling supersede pointers.
 
 ```bash
-node bin/check-decisions.mjs DECISIONS.md
+npx check-decisions DECISIONS.md
 ```
+
+The linter is a single file with no dependencies. Vendor
+[`bin/check-decisions.mjs`](bin/check-decisions.mjs) directly if you would rather
+not add `npx`.
 
 ## FAQ
 

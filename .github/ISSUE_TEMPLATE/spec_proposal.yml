@@ -1,0 +1,41 @@
+name: Spec proposal
+description: Propose a change to the DECISIONS.md format itself.
+labels: ["proposal"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What does the current spec get wrong or leave unclear. Be concrete.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: The exact wording or rule you want, and where in README.md it goes.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Real-world evidence
+      description: At least one real repository or situation where the current spec falls short.
+    validations:
+      required: true
+  - type: dropdown
+    id: compat
+    attributes:
+      label: Backward compatibility
+      options:
+        - Additive, optional guidance only
+        - Changes a recommendation
+        - Changes or adds a required field (breaking)
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false

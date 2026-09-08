@@ -8,7 +8,7 @@ any architectural, infrastructural, data-model, auth, or integration change.
 After making one, append a new record below using the same shape, update the
 index, and do not edit past records except to change a status.
 
-Full format: https://github.com/OWNER/decisions.md
+Full format: https://github.com/dropout-developer/decisions.md
 
 <!-- Nested logs, if this is a monorepo:
 - packages/api/DECISIONS.md

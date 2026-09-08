@@ -1,26 +1,48 @@
 {
   "name": "decisions.md",
   "version": "0.1.0",
-  "description": "A predictable append-only decision log at the root of a repository, for humans and AI coding agents.",
+  "description": "A predictable append-only decision log at the root of a repository, for humans and AI coding agents. Ships a zero-dependency linter.",
   "type": "module",
   "bin": {
     "check-decisions": "bin/check-decisions.mjs"
   },
   "scripts": {
-    "check": "node bin/check-decisions.mjs DECISIONS.example.md"
+    "test": "node --test",
+    "check": "node bin/check-decisions.mjs DECISIONS.md DECISIONS.example.md template.md"
   },
   "files": [
     "bin/check-decisions.mjs",
     "template.md",
-    "README.md"
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "keywords": [
     "adr",
     "architecture-decision-record",
+    "decision-log",
     "decisions",
     "agents",
     "agents.md",
-    "documentation"
+    "ai-agents",
+    "documentation",
+    "linter"
   ],
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dropout-developer/decisions.md.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dropout-developer/decisions.md/issues"
+  },
+  "homepage": "https://github.com/dropout-developer/decisions.md#readme",
+  "author": "Ankur Ishwar",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }

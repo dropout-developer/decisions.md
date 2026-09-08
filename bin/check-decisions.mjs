@@ -1,10 +1,34 @@
 #!/usr/bin/env node
 // check-decisions.mjs
-// Validates a DECISIONS.md file against the spec: https://github.com/OWNER/decisions.md
-// No dependencies. Usage: node bin/check-decisions.mjs [path ...]
+// Validates a DECISIONS.md file against the spec:
+// https://github.com/dropout-developer/decisions.md
+// No dependencies. Usage: check-decisions [path ...]   (default: DECISIONS.md)
 // Exit code 0 when every file passes, 1 otherwise.
 
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+const HELP = `check-decisions [path ...]
+
+Validate one or more DECISIONS.md files against the spec at
+https://github.com/dropout-developer/decisions.md
+
+With no path, checks ./DECISIONS.md. Prints "ok <path>" per passing file and
+"err <path>:<line> ..." per problem. Exits non-zero if any file fails.
+
+  --version   print version and exit
+  --help      print this message and exit`;
+
+function version() {
+  try {
+    const pkg = JSON.parse(
+      readFileSync(fileURLToPath(new URL("../package.json", import.meta.url))),
+    );
+    return pkg.version ?? "0.0.0";
+  } catch {
+    return "0.0.0";
+  }
+}
 
 const STATUS_RE =
   /^(Proposed|Accepted|Deprecated|Superseded by (DEC|ADR)-\d{3,})$/;
@@ -111,7 +135,17 @@ function checkFile(path) {
   return problems;
 }
 
-const paths = process.argv.slice(2);
+const args = process.argv.slice(2);
+if (args.includes("--version") || args.includes("-v")) {
+  console.log(version());
+  process.exit(0);
+}
+if (args.includes("--help") || args.includes("-h")) {
+  console.log(HELP);
+  process.exit(0);
+}
+
+const paths = args.filter((a) => !a.startsWith("-"));
 if (paths.length === 0) paths.push("DECISIONS.md");
 
 let failed = false;

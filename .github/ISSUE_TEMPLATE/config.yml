@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/dropout-developer/decisions.md/discussions
+    about: Ask how to adopt DECISIONS.md, or discuss an idea before filing a proposal.

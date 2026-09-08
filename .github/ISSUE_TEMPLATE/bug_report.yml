@@ -1,0 +1,43 @@
+name: Bug report
+description: Something in the linter or the docs is wrong or broken.
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Linter (bin/check-decisions.mjs)
+        - Documentation or example
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you run or read, and what went wrong.
+      placeholder: |
+        Ran `npx check-decisions DECISIONS.md` and it reported ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `npx check-decisions --version` or the commit SHA.
+    validations:
+      required: false
+  - type: input
+    id: node
+    attributes:
+      label: Node version
+      placeholder: v20.11.0
+    validations:
+      required: false
