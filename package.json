@@ -1,0 +1,26 @@
+{
+  "name": "decisions.md",
+  "version": "0.1.0",
+  "description": "A predictable append-only decision log at the root of a repository, for humans and AI coding agents.",
+  "type": "module",
+  "bin": {
+    "check-decisions": "bin/check-decisions.mjs"
+  },
+  "scripts": {
+    "check": "node bin/check-decisions.mjs DECISIONS.example.md"
+  },
+  "files": [
+    "bin/check-decisions.mjs",
+    "template.md",
+    "README.md"
+  ],
+  "keywords": [
+    "adr",
+    "architecture-decision-record",
+    "decisions",
+    "agents",
+    "agents.md",
+    "documentation"
+  ],
+  "license": "MIT"
+}
